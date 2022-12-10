@@ -2,9 +2,6 @@ import os
 import subprocess
 import pyfiglet
 import time
-os.system("clear")
-ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
-print(ascii_banner)
 
 
 def Windows_Reverse_Shell():
@@ -264,6 +261,8 @@ exploit -j
 
 def main():
     os.system("clear")
+    ascii_banner = pyfiglet.figlet_format("PayloadsAllTheThings")
+    print(ascii_banner)
     payload_num = int(input("""
 
 [1] Windows Reverse Shell Payload x64 (metasploit)
